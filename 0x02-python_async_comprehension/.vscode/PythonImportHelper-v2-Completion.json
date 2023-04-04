@@ -1,0 +1,98 @@
+[
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Generator",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncGenerator",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "async_generator",
+        "kind": 5,
+        "importPath": "0-main",
+        "description": "0-main",
+        "peekOfCode": "async_generator = __import__('0-async_generator').async_generator\nasync def print_yielded_values():\n    result = []\n    async for i in async_generator():\n        result.append(i)\n    print(result)\nasyncio.run(print_yielded_values())",
+        "detail": "0-main",
+        "documentation": {}
+    },
+    {
+        "label": "async_generator",
+        "kind": 5,
+        "importPath": "1-async_comprehension",
+        "description": "1-async_comprehension",
+        "peekOfCode": "async_generator = __import__('0-async_generator').async_generator\nasync def async_comprehension() -> List[float]:\n    \"\"\"\n    This coroutine will collect 10 random numbers using an async\n    comprehensing over async_generator, then return the 10 random numbers\n    \"\"\"\n    random_numbers = [num async for num in async_generator()]\n    return random_numbers",
+        "detail": "1-async_comprehension",
+        "documentation": {}
+    },
+    {
+        "label": "async_comprehension",
+        "kind": 5,
+        "importPath": "1-main",
+        "description": "1-main",
+        "peekOfCode": "async_comprehension = __import__('1-async_comprehension').async_comprehension\nasync def main():\n    print(await async_comprehension())\nasyncio.run(main())",
+        "detail": "1-main",
+        "documentation": {}
+    },
+    {
+        "label": "measure_runtime",
+        "kind": 5,
+        "importPath": "2-main",
+        "description": "2-main",
+        "peekOfCode": "measure_runtime = __import__('2-measure_runtime').measure_runtime\nasync def main():\n    return await(measure_runtime())\nprint(\n    asyncio.run(main())\n)",
+        "detail": "2-main",
+        "documentation": {}
+    },
+    {
+        "label": "async_comprehension",
+        "kind": 5,
+        "importPath": "2-measure_runtime",
+        "description": "2-measure_runtime",
+        "peekOfCode": "async_comprehension = __import__('1-async_comprehension').async_comprehension\nasync def measure_runtime() -> float:\n    \"\"\"\n    a measure_runtime coroutine that will execute\n    async_comprehension four times in parallel using asyncio.gather\n    \"\"\"\n    start = time.perf_counter()\n    await asyncio.gather(async_comprehension())\n    end = time.perf_counter()\n    total_time = end - start",
+        "detail": "2-measure_runtime",
+        "documentation": {}
+    }
+]
