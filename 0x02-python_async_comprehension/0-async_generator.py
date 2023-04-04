@@ -3,14 +3,14 @@
 
 import asyncio
 import random
-from typing import Generator
+from typing import Generator, AsyncGenerator
 
 
-async def async_generator() -> Generator[float, None]:
+async def async_generator() -> AsyncGenerator[float, None]:
     """
     a coroutine function that takes no arguments
     """
 
     for item in range(10):
         await asyncio.sleep(1)
-        yield(random.random() * 10)
+        yield random.random() * 10
