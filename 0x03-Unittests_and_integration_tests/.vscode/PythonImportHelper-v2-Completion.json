@@ -97,6 +97,14 @@
         "documentation": {}
     },
     {
+        "label": "parameterized",
+        "importPath": "parameterized",
+        "description": "parameterized",
+        "isExtraImport": true,
+        "detail": "parameterized",
+        "documentation": {}
+    },
+    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,
@@ -136,7 +144,7 @@
         "kind": 6,
         "importPath": "test_utils",
         "description": "test_utils",
-        "peekOfCode": "class TestAccessNestedMap(unittest.TestCase):\n    \"\"\"\n    Implement the TestAccessNestedMap.test_access_nested_map\n    method to test that the method returns what it is supposed to\n    \"\"\"\n    # @parameterized.expand([])\n    def test_access_nested_map(self):\n        self.assertEqual(nested_map={\"a\": 1}, path=(\"a\",))\n        self.assertEqual(nested_map={\"a\": {\"b\": 2}}, path=(\"a\",))\n        self.assertEqual(nested_map={\"a\": {\"b\": 2}}, path=(\"a\", \"b\"))",
+        "peekOfCode": "class TestAccessNestedMap(unittest.TestCase):\n    \"\"\"\n    Implement the TestAccessNestedMap.test_access_nested_map\n    method to test that the method returns what it is supposed to\n    \"\"\"\n    @parameterized.expand([\n        [{\"a\": 1}, (\"a\",), 1],\n        [{\"a\": {\"b\": 2}}, (\"a\",), {\"b\": 2}],\n        [{\"a\": {\"b\": 2}}, (\"a\", \"b\"), 2],\n    ])",
         "detail": "test_utils",
         "documentation": {}
     },
